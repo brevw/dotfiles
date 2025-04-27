@@ -25,4 +25,5 @@ What will be installed is the following:
 - tmux (plugins automatically installed)
 - sketchybar
 - nvim (will require opening nvim to install the packages)
+- lazygit
 
