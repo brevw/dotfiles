@@ -57,3 +57,17 @@ if [ ! -d "$ZSH_PLUGINS_DIR/zsh-syntax-highlighting" ]; then
 else
     echo "zsh-syntax-highlighting plugin is already installed."
 fi
+
+
+
+# add link from ~/.zshrc to ~/.config/zsh/.zshrc
+ZSHRC_SOURCE="$HOME/.config/zsh/.zshrc"
+ZSHRC_TARGET="$HOME/.zshrc"
+
+# Check if the symlink already exists and points to the correct target
+if [ ! -L "$ZSHRC_TARGET" ] || [ "$(readlink "$ZSHRC_TARGET")" != "$ZSHRC_SOURCE" ]; then
+    echo "Creating symlink from $ZSHRC_TARGET to $ZSHRC_SOURCE..."
+    ln -sf "$ZSHRC_SOURCE" "$ZSHRC_TARGET"
+else
+    echo "Symlink already exists and points to the correct location."
+fi
