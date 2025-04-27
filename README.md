@@ -16,3 +16,13 @@ chmod +x install.sh
 ./install.sh
 ```
 The `install.sh` could also be run regularly to update the packages.
+
+What will be installed is the following:
+- brew
+- git
+- iterm2
+- zsh (oh-my-zsh)
+- tmux (plugins automatically installed)
+- sketchybar
+- nvim (will require opening nvim to install the packages)
+
