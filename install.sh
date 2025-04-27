@@ -52,3 +52,10 @@ fi
 ln -sf "$DOTFILES_DIR/tmux" "$HOME/.config/tmux"
 source "$DOTFILES_DIR/tmux/install.sh"
 
+#-->>>>>> nvim
+echo "Installing nvim..."
+if [ -L "$HOME/.config/nvim" ]; then
+    rm "$HOME/.config/nvim"
+fi
+ln -sf "$DOTFILES_DIR/nvim" "$HOME/.config/nvim"
+source "$DOTFILES_DIR/nvim/install.sh"
