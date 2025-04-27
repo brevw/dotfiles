@@ -1,12 +1,8 @@
 # dotfiles
 Only works on Mac.
 
-
-### Requirements
-Install `brew` if not installed
-```bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-```
+Expectations:
+![config](./result.png)
 
 ### Installation
 The scripts use force symlinks which might overwrite your current configuration files. <br>
@@ -19,3 +15,4 @@ cd dotfiles
 chmod +x install.sh
 ./install.sh
 ```
+The `install.sh` could also be run regularly to update the packages.
