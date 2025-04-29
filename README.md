@@ -26,4 +26,4 @@ What will be installed is the following:
 - sketchybar
 - nvim (will require opening nvim to install the packages)
 - lazygit
-
+- ffmpeg

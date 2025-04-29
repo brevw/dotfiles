@@ -16,4 +16,6 @@ else
     echo "nvim is already installed."
 fi
 
+# Other binaries used inside vim
 brew install lazygit
+brew install ffmpeg
