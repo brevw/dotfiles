@@ -18,13 +18,11 @@ require("lazy").setup({
   { import = "plugins.ui" },                            -- Color Theme (tokyo-night), customized status
                                                         -- lines (lualine), buffer management (bufferline),
                                                         -- file explorer (nvim-tree)
--- { import = "plugins.git"},                           -- git integration
   { import = "plugins.lazygit"},                        -- git integration
   { import = "plugins.lsp"},                            -- lsp
   { import = "plugins.cmp"},                            -- autocomplete
   { import = "plugins.notify"},                         -- GUI notifications
   { import = "plugins.copilot"},                        -- Github Copilot
---{ import = "plugins.which-key"},                      -- key bindings visualizations
   { import = "plugins.treesitter" },                    -- Treesitter
   { import = "plugins.dap" },                           -- Enable Debugging
   { import = "plugins.vimtex" },                        -- Latex integration
