@@ -27,3 +27,8 @@ What will be installed is the following:
 - nvim (will require opening nvim to install the packages)
 - lazygit
 - ffmpeg
+
+### future improvements
+
+- [ ] switch from Iterm to Alacritty
+
