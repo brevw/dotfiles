@@ -17,5 +17,6 @@ else
 fi
 
 # Other binaries used inside vim
+brew install lua
 brew install lazygit
 brew install ffmpeg
