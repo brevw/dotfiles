@@ -14,6 +14,9 @@ local opts = { noremap = true, silent = true }  -- Recommended options
 -- Custom Key Mappings
 vim.api.nvim_set_keymap('n', '<Leader>D', '"_D', { noremap = true })
 
+-- Lua Debug Mappings (to update config on the fly)
+vim.keymap.set('n', '<leader><leader>x', '<cmd>source %<CR>', opts) -- Source the current file
+keymap('v', '<leader>x', ':lua <CR>', opts) -- Execute Lua code in visual mode
 
 -- Normal Mode
 keymap('n', '<leader>h', ':nohlsearch<CR>', opts) -- Clear search highlight
@@ -149,3 +152,8 @@ vim.keymap.set("n", "\\li", "<cmd>VimtexInfo<CR>", { noremap = true, silent = tr
 
 -- Markdown Preview keybindings
 vim.api.nvim_set_keymap('n', '<leader>mp', ':vsp | term w3m http://localhost:3000/1<CR>', { noremap = true, silent = true })
+
+
+
+
+print("Keymaps loaded successfully!")
