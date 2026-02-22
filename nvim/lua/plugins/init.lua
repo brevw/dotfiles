@@ -12,8 +12,8 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup({
-  { "folke/lazy.nvim", lazy = false, priority = 1000 }, -- Lazy.nvim (plugin manager itself)
+local lazy = require("lazy")
+lazy.setup({
   { import = "plugins.telescope" },                     -- Fuzzy Finder
   { import = "plugins.ui" },                            -- Color Theme (tokyo-night), customized status
                                                         -- lines (lualine), buffer management (bufferline),
@@ -27,4 +27,7 @@ require("lazy").setup({
   { import = "plugins.dap" },                           -- Enable Debugging
   { import = "plugins.vimtex" },                        -- Latex integration
   { import = "plugins.md-preview" },                    -- .md file preview
+  { import = "plugins.golf" },
+  { import = "plugins.fugitive" },
+  { import = "plugins.tmux" },
 })

@@ -20,3 +20,10 @@ fi
 brew install lua
 brew install lazygit
 brew install ffmpeg
+brew install shellcheck
+brew install tldr
+brew install fzf
+brew install tree
+brew install broot
+brew install --cask xquartz
+brew install feh

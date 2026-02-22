@@ -12,7 +12,7 @@ HEIGHT=$(($HEIGHT / 2))
 HALF_WIDTH=$(($WIDTH / 2))
 
 # Variables
-TEMPLATE_PATH="$HOME/scripts/template.tex" # Adjust the path (handles spaces)
+TEMPLATE_PATH="$HOME/dotfiles/scripts/template.tex" # Adjust the path (handles spaces)
 DEST_DIR=$(pwd) # Current directory
 FILE_NAME=$(find . -maxdepth 1 -type f -name "*.tex" | head -n 1)
 FILE_NAME=$(basename "$FILE_NAME")

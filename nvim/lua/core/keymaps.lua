@@ -6,7 +6,7 @@ vim.g.maplocalleader = " "
 
 -- Use the modern keymap API
 local keymap = vim.keymap.set
-local opts = { noremap = true, silent = true }  -- Recommended options
+local opts = { noremap = true, silent = false }  -- Recommended options
 
 -- Import Neovim's default keymaps implicitly
 -- (No action needed, defaults remain intact unless overridden)
@@ -27,6 +27,9 @@ keymap('n', '<C-j>', '<C-w>j', opts)  -- Move to the window below
 keymap('n', '<C-k>', '<C-w>k', opts)  -- Move to the window above
 keymap('n', '<C-l>', '<C-w>l', opts)  -- Move to the right window
 
+keymap('n', '<C-a>l', ':BufferLineMoveNext<CR>', opts) -- Move to the next buffer
+keymap('n', '<C-a>h', ':BufferLineMovePrev<CR>', opts) -- Move to the previous buffer
+
 -- Resize Splits
 keymap('n', '<C-Up>', ':resize +2<CR>', opts)
 keymap('n', '<C-Down>', ':resize -2<CR>', opts)
@@ -40,20 +43,16 @@ keymap('v', '>', '>gv', opts) -- Indent right and keep selection
 -- Overwrite Default Keymaps (Optional)
 keymap('n', 'Y', 'y$', opts) -- Redefine `Y` to yank till end of line
 
-
--- Reload Core Config Dynamically
---vim.keymap.set('n', '<leader>r', require('core.utils').reload_config, { noremap = true, silent = true })
-
 -- Toggle Relative Numbers
-vim.keymap.set('n', '<leader>rn', require('core.utils').toggle_relative_number, { noremap = true, silent = true }) -- NOTE: CAUSES CONFLICT
+vim.keymap.set('n', '<leader>rn', require('core.utils').toggle_relative_number, opts)
 
 -- Open URL Under Cursor
-vim.keymap.set('n', 'gx', require('core.utils').open_url, { noremap = true, silent = true })
+vim.keymap.set('n', 'gx', require('core.utils').open_url, opts)
 
 -- Code Folding
-vim.keymap.set("n", "zR", ":foldopen!<CR>", { noremap = true, silent = true }) -- Open all folds
-vim.keymap.set("n", "zM", ":foldclose!<CR>", { noremap = true, silent = true }) -- Close all folds
-vim.keymap.set("n", "zr", ":foldopen<CR>", { noremap = true, silent = true }) -- Open one level of folds
+vim.keymap.set("n", "zR", ":foldopen!<CR>", opts) -- Open all folds
+vim.keymap.set("n", "zM", ":foldclose!<CR>", opts) -- Close all folds
+vim.keymap.set("n", "zr", ":foldopen<CR>", opts) -- Open one level of folds
 
 --> FOR PLUGINS
 -- Telescope keybindings
@@ -62,7 +61,12 @@ keymap("n", "<leader>ff", "<cmd>Telescope find_files<CR>", opts)  -- Find files 
 keymap("n", "<leader>fg", "<cmd>Telescope live_grep<CR>", opts)   -- Live grep on text (uses ripgrep)
 keymap("n", "<leader>fb", "<cmd>Telescope buffers<CR>", opts)     -- List open buffers
 keymap("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", opts)   -- Help tags
-keymap("n", "<leader>fc", "<cmd>Telescope current_buffer_fuzzy_find<CR>", opts) -- Fuzzy find in current buffer
+-- keymap("n", "<leader>fc", "<cmd>Telescope current_buffer_fuzzy_find<CR>", opts) -- Fuzzy find in current buffer
+keymap("n", "<leader>fc", function()
+    require('telescope.builtin').find_files({
+        cwd = vim.fn.stdpath'config',
+    })
+end , opts) -- Fuzzy find in current buffer
 keymap("n", "<leader>fq", "<cmd>Telescope quickfix<CR>", opts)    -- Quickfix list
 
 -- UI keybindings
@@ -151,7 +155,7 @@ vim.keymap.set("n", "\\lo", "<cmd>VimtexLog<CR>", { noremap = true, silent = tru
 vim.keymap.set("n", "\\li", "<cmd>VimtexInfo<CR>", { noremap = true, silent = true }) -- Show project info
 
 -- Markdown Preview keybindings
-vim.api.nvim_set_keymap('n', '<leader>mp', ':vsp | term w3m http://localhost:3000/1<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>mp', '<cmd>MarkdownPreview<CR>', opts) -- Start/stop Markdown preview
 
 
 
