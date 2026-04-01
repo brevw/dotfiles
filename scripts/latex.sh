@@ -1,15 +1,15 @@
 #!/bin/zsh
 
 # Get Resolution Dynamically
-RESOLUTION=$(system_profiler SPDisplaysDataType | grep Resolution | awk '{print $2, $4}')
+RESOLUTION=$(system_profiler SPDisplaysDataType | grep Resolution | head -n 1 | awk '{print $2, $4}')
 RESOLUTION=$(echo $RESOLUTION | cut -d 'x' -f 1)
 WIDTH=$(echo $RESOLUTION | cut -d ' ' -f 1)
 HEIGHT=$(echo $RESOLUTION | cut -d ' ' -f 2)
 
 # fix resolution scale
-WIDTH=$(($WIDTH / 2))
-HEIGHT=$(($HEIGHT / 2))
-HALF_WIDTH=$(($WIDTH / 2))
+WIDTH=$(echo "$WIDTH / 2" | bc)
+HEIGHT=$(echo "$HEIGHT / 2" | bc)
+HALF_WIDTH=$(echo "$WIDTH / 2" | bc)
 
 # Variables
 TEMPLATE_PATH="$HOME/dotfiles/scripts/template.tex" # Adjust the path (handles spaces)
@@ -25,7 +25,9 @@ PDF_FILE="$DEST_DIR/$FILE_NAME.pdf"
 
 # Clear Terminal
 clear
-echo "$WIDTH x $HEIGHT"
+echo "width: $WIDTH"
+echo "height: $HEIGHT"
+echo "Screen Resolution: $WIDTH x $HEIGHT"
 
 # Prompt Options
 cat <<EOF
