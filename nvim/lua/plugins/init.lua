@@ -28,6 +28,7 @@ lazy.setup({
   { import = "plugins.vimtex" },                        -- Latex integration
   { import = "plugins.md-preview" },                    -- .md file preview
   { import = "plugins.golf" },
+  { import = "plugins.gitsigns" },
   { import = "plugins.fugitive" },
   { import = "plugins.tmux" },
 })

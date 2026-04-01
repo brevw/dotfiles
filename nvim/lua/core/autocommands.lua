@@ -11,10 +11,10 @@ autocmd("TextYankPost", {
 })
 
 -- Remove trailing whitespace on save
-autocmd("BufWritePre", {
-  pattern = "*",
-  command = "%s/\\s\\+$//e",  -- Remove trailing spaces
-})
+-- autocmd("BufWritePre", {
+--   pattern = "*",
+--   command = "%s/\\s\\+$//e",  -- Remove trailing spaces
+-- })
 
 -- Set specific options for Markdown files
 autocmd("FileType", {
