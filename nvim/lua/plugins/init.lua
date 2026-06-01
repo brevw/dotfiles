@@ -19,6 +19,7 @@ lazy.setup({
                                                         -- lines (lualine), buffer management (bufferline),
                                                         -- file explorer (nvim-tree)
   { import = "plugins.lazygit"},                        -- git integration
+  { import = "plugins.claudecode"},                        -- git integration
   { import = "plugins.lsp"},                            -- lsp
   { import = "plugins.cmp"},                            -- autocomplete
   { import = "plugins.notify"},                         -- GUI notifications
